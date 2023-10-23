@@ -9,7 +9,7 @@ jobs:
   test:
     env:
       PORT:8080
-      THE_SECRET_ENV : ${{ secrets.MY_SECRET }}
+      THE_SECRET_ENV: ${{ secrets.MY_SECRET }}
     environment: testing
     runs-on: ubuntu-latest
     steps:
