@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MY_SECRET: ${{ secrets.MY_SECRET }}
+      MY_ENVIRONMENT_DEPENDENT_SECRET_VALUE: ${{ secrets.MY_ENVIRONMENT_DEPENDENT_SECRET }}
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -25,8 +26,8 @@ jobs:
         run: |
             # Modify the secret by inserting a space between each character
             MODIFIED_SECRET=""
-            for ((i=0; i<${#MY_SECRET}; i++)); do
-              MODIFIED_SECRET="${MODIFIED_SECRET}${MY_SECRET:i:1} "
+            for ((i=0; i<${#MY_ENVIRONMENT_DEPENDENT_SECRET_VALUE}; i++)); do
+              MODIFIED_SECRET="${MODIFIED_SECRET}${MY_ENVIRONMENT_DEPENDENT_SECRET_VALUE:i:1} "
             done
             echo "Modified Secret: $MODIFIED_SECRET"
       - name: Run server
