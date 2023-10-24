@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    environment: testing
+    environment: prod
     runs-on: ubuntu-latest
     env:
       MY_SECRET: ${{ secrets.MY_SECRET }}
